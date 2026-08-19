@@ -47,14 +47,14 @@ export function Navbar() {
           ))}
         </ul>
 
-        <div className="hidden lg:block">
+        {/* <div className="hidden lg:block">
           <Link href="/contact">
             <Button size="sm">
               Get a Quote
               <ArrowRight className="size-4" aria-hidden="true" />
             </Button>
           </Link>
-        </div>
+        </div> */}
 
         <button
           type="button"
@@ -81,14 +81,14 @@ export function Navbar() {
                 </Link>
               </li>
             ))}
-            <li className="pt-2">
+            {/* <li className="pt-2">
               <Link href="/contact" onClick={() => setOpen(false)}>
                 <Button size="sm" className="w-full">
                   Get a Quote
                   <ArrowRight className="size-4" aria-hidden="true" />
                 </Button>
               </Link>
-            </li>
+            </li> */}
           </ul>
         </div>
       ) : null}

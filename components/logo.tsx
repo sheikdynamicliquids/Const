@@ -17,8 +17,8 @@ export function Logo({ className, invert = false }: LogoProps) {
       <Image
         src="/images/logo.jpg"
         alt="Amazing Abodes"
-        width={48}
-        height={48}
+        width={49}
+        height={49}
         priority
         className="size-12 object-contain"
       />
@@ -35,7 +35,7 @@ export function Logo({ className, invert = false }: LogoProps) {
 
         <span
           className={cn(
-            'text-[10px] font-semibold uppercase tracking-[0.2em]',
+            'text-[9px] font-semibold  tracking-[0.1em]',
             invert ? 'text-footer-muted' : 'text-primary',
           )}
         >

@@ -49,7 +49,7 @@ export function ContactForm() {
             type="text"
             required
             autoComplete="name"
-            placeholder="Jane Doe"
+            placeholder="Enter Name"
             className={inputClass}
           />
         </div>
@@ -62,7 +62,7 @@ export function ContactForm() {
             name="phone"
             type="tel"
             autoComplete="tel"
-            placeholder="+91 90000 00000"
+            placeholder="+91 XXXXX XXXXX"
             className={inputClass}
           />
         </div>
@@ -78,7 +78,7 @@ export function ContactForm() {
           type="email"
           required
           autoComplete="email"
-          placeholder="you@example.com"
+          placeholder="you@gmail.com"
           className={inputClass}
         />
       </div>

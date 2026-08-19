@@ -1,6 +1,5 @@
-import { Phone, Mail, MapPin } from 'lucide-react'
+import { Phone, Mail, MapPin, ArrowRight } from 'lucide-react'
 import { Logo } from '@/components/logo'
-import { NewsletterForm } from '@/components/newsletter-form'
 import {
   FacebookIcon,
   InstagramIcon,
@@ -11,24 +10,26 @@ import { COMPANY, NAV_LINKS } from '@/constants/content'
 import Link from 'next/link'
 
 const SOCIAL_ICONS = [
-  { label: 'Facebook', href: 'https://facebook.com', Icon: FacebookIcon },
-  { label: 'Instagram', href: 'https://instagram.com', Icon: InstagramIcon },
-  { label: 'LinkedIn', href: 'https://linkedin.com', Icon: LinkedinIcon },
-  { label: 'Twitter', href: 'https://twitter.com', Icon: TwitterIcon },
+  { label: 'Facebook', href: '#', Icon: FacebookIcon },
+  { label: 'Instagram', href: '#', Icon: InstagramIcon },
+  { label: 'LinkedIn', href: '#', Icon: LinkedinIcon },
+  { label: 'Twitter', href: '#', Icon: TwitterIcon },
 ]
 
 export function Footer() {
   return (
-    <footer className="bg-footer text-footer-foreground">
+    <footer className="bg-slate-900 text-white">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
-          <div className="flex flex-col gap-5">
+        {/* Main Grid */}
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3">
+          {/* Brand */}
+          <div>
             <Logo invert />
-            <p className="max-w-xs text-sm leading-relaxed text-footer-muted">
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-slate-400">
               Crafting Amazing Abodes. Premium construction materials &amp; full-service
               contracting since 2009.
             </p>
-            <div className="flex items-center gap-3">
+            {/* <div className="mt-6 flex items-center gap-3">
               {SOCIAL_ICONS.map(({ label, href, Icon }) => (
                 <a
                   key={label}
@@ -36,80 +37,89 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="flex size-9 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-footer-foreground transition-colors hover:bg-brand-gradient"
+                  className="flex size-10 items-center justify-center rounded-full bg-white/5 text-slate-400 transition-all hover:bg-emerald-600 hover:text-white hover:scale-110"
                 >
                   <Icon className="size-4" aria-hidden="true" />
                 </a>
               ))}
-            </div>
+            </div> */}
           </div>
 
+          {/* Quick Links */}
           <nav aria-label="Footer">
-            <h3 className="text-sm font-bold uppercase tracking-widest text-footer-foreground">
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-white">
               Quick Links
             </h3>
-            <ul className="mt-5 flex flex-col gap-3">
+            <ul className="mt-5 space-y-3">
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-footer-muted transition-colors hover:text-footer-foreground"
+                    className="group flex items-center gap-2 text-sm text-slate-400 transition-colors hover:text-white"
                   >
-                    {link.label}
+                    <ArrowRight className="size-3 opacity-0 transition-all group-hover:opacity-100 group-hover:translate-x-1" />
+                    <span className="group-hover:translate-x-1 transition-transform">
+                      {link.label}
+                    </span>
                   </Link>
                 </li>
               ))}
             </ul>
           </nav>
 
+          {/* Contact */}
           <div>
-            <h3 className="text-sm font-bold uppercase tracking-widest text-footer-foreground">
-              Contact
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-white">
+              Contact Us
             </h3>
-            <ul className="mt-5 flex flex-col gap-4 text-sm text-footer-muted">
+            <ul className="mt-5 space-y-4 text-sm">
               <li>
                 <a
                   href={COMPANY.phoneHref}
-                  className="flex items-center gap-3 transition-colors hover:text-footer-foreground"
+                  className="group flex items-center gap-3 text-slate-400 transition-colors hover:text-white"
                 >
-                  <Phone className="size-4 shrink-0 text-primary" aria-hidden="true" />
+                  <span className="flex size-9 items-center justify-center rounded-full bg-emerald-600/20 text-emerald-400 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                    <Phone className="size-4" aria-hidden="true" />
+                  </span>
                   {COMPANY.phone}
                 </a>
               </li>
               <li>
                 <a
                   href={COMPANY.emailHref}
-                  className="flex items-center gap-3 transition-colors hover:text-footer-foreground"
+                  className="group flex items-center gap-3 text-slate-400 transition-colors hover:text-white"
                 >
-                  <Mail className="size-4 shrink-0 text-primary" aria-hidden="true" />
+                  <span className="flex size-9 items-center justify-center rounded-full bg-emerald-600/20 text-emerald-400 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                    <Mail className="size-4" aria-hidden="true" />
+                  </span>
                   {COMPANY.email}
                 </a>
               </li>
-              <li className="flex items-start gap-3">
-                <MapPin className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
-                {COMPANY.address}
+              <li className="flex items-start gap-3 text-slate-400">
+                <span className="flex size-9 items-center justify-center rounded-full bg-emerald-600/20 text-emerald-400 flex-shrink-0 mt-0.5">
+                  <MapPin className="size-4" aria-hidden="true" />
+                </span>
+                <span>{COMPANY.address}</span>
               </li>
             </ul>
           </div>
-
-          <div>
-            <h3 className="text-sm font-bold uppercase tracking-widest text-footer-foreground">
-              Newsletter
-            </h3>
-            <p className="mt-5 text-sm leading-relaxed text-footer-muted">
-              Get market rates, new products and project stories to your inbox.
-            </p>
-            <div className="mt-4">
-              <NewsletterForm />
-            </div>
-          </div>
         </div>
 
-        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-sm text-footer-muted sm:flex-row">
+        {/* Bottom Bar */}
+        <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-slate-800 pt-8 text-sm text-slate-500 sm:flex-row">
           <p>
             &copy; {new Date().getFullYear()} {COMPANY.name}. All rights reserved.
           </p>
-          <p>Built with care for builders and homeowners.</p>
+          <div className="flex items-center gap-6">
+            {/* <Link href="/privacy" className="hover:text-white transition-colors">
+              Privacy Policy
+            </Link>
+            <Link href="/terms" className="hover:text-white transition-colors">
+              Terms of Service
+            </Link> */}
+            <span className="text-slate-700">|</span>
+            <p className="text-slate-500">Built with care for builders and homeowners.</p>
+          </div>
         </div>
       </div>
     </footer>
