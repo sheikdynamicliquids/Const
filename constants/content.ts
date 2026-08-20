@@ -27,7 +27,7 @@ import type {
 
 export const COMPANY = {
   name: 'Amazing Abodes',
-  tagline: 'Make your dreams true through our commitment',
+  tagline: 'Make your dreams true through our foundation',
 
   phone: '+91 9942907420',
   phoneHref: 'tel:+919942907420',
@@ -559,48 +559,48 @@ const CONSTRUCTION_IMAGES = [
   "/images/photos/ConstructionSite/272.jpeg",
 ]
 
-// Combined projects with separate image paths
+// Combined projects with proper number sequences
 export const PROJECTS: Project[] = [
-  // Residential Projects (10 images)
+  // Residential Projects (10 images) - Residential Project #1 to #10
   ...RESIDENTIAL_IMAGES.map((image, index) => ({
-    name: ``,
+    name: `Residential Project #${index + 1}`,
     description: `Beautiful residential project with modern amenities and premium finishes.`,
     image: image,
     category: "Residential",
     featured: index < 2,
   })),
   
-  // Commercial Projects (10 images)
+  // Commercial Projects (10 images) - Commercial Project #1 to #10
   ...COMMERCIAL_IMAGES.map((image, index) => ({
-    name: ``,
+    name: `Commercial Project #${index + 1}`,
     description: `Modern commercial space designed for business excellence and functionality.`,
     image: image,
     category: "Commercial",
     featured: index < 2,
   })),
   
-  // Renovation Projects (10 images)
+  // Renovation Projects (10 images) - Renovation Project #1 to #10
   ...RENOVATION_IMAGES.map((image, index) => ({
-    name: ``,
+    name: `Renovation Project #${index + 1}`,
     description: `Expert renovation transforming spaces with modern design and quality craftsmanship.`,
     image: image,
     category: "Renovation",
     featured: index < 2,
   })),
   
-  // Interior Works Projects (10 images)
+  // Interior Works Projects (10 images) - Interior Works #1 to #10
   ...INTERIOR_IMAGES.map((image, index) => ({
-    name: ``,
+    name: `Interior Works #${index + 1}`,
     description: `Stunning interior design creating beautiful and functional living spaces.`,
     image: image,
     category: "Interior Works",
     featured: index < 2,
   })),
 
-  // Construction Site Projects (10 images)
+  // Construction Site Projects (272 images) - Construction Site #1 to #272
   ...CONSTRUCTION_IMAGES.map((image, index) => ({
-    name: ``,
-    description: `Expert renovation transforming spaces with modern design and quality craftsmanship.`,
+    name: `Construction Site #${index + 1}`,
+    description: `Expert construction work ensuring quality and durability.`,
     image: image,
     category: "Others",
     featured: index < 2,

@@ -20,7 +20,7 @@ const IMAGE_COUNTS = {
   'Interior Works': 10,
 }
 
-export function Projects() {
+export default function Projects() {  // <-- Changed to default export
   const [activeCategory, setActiveCategory] = useState<CategoryType>('All')
 
   // Get unique categories from projects
@@ -31,15 +31,11 @@ export function Projects() {
 
   // Filter projects based on active category with specific counts
   const filteredProjects = useMemo(() => {
-    // Get all projects for the selected category
     let projects = activeCategory === 'All' 
       ? PROJECTS 
       : PROJECTS.filter(project => project.category === activeCategory)
     
-    // Get the count for this category
     const count = IMAGE_COUNTS[activeCategory] || 270
-    
-    // Return the first N projects
     return projects.slice(0, count)
   }, [activeCategory])
 
@@ -73,12 +69,12 @@ export function Projects() {
           ))}
         </div>
 
-        {/* Project Grid - Displaying only images */}
+        {/* Project Grid */}
         <div className="mt-10">
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {filteredProjects.map((project, i) => (
               <Reveal key={`project-${project.name}-${i}`} delay={i * 80}>
-                <div className="group overflow-hidden rounded-xl bg-card shadow-sm hover:shadow-md transition-shadow">
+                <div className="group overflow-hidden rounded-xl bg-card shadow-sm hover:shadow-md transition-shadow relative">
                   <div className="aspect-[4/3] overflow-hidden bg-muted relative">
                     <Image
                       src={project.image}
@@ -87,6 +83,29 @@ export function Projects() {
                       height={600}
                       className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
+                    
+                    {/* Number Badge */}
+                    <div className="absolute top-3 left-3 bg-black/70 backdrop-blur-sm text-white px-3 py-1.5 rounded-lg text-sm font-bold">
+                      {i + 1}
+                    </div>
+
+                    {/* Category Badge
+                    <div className="absolute bottom-3 left-3 bg-primary/90 backdrop-blur-sm text-white px-3 py-1 rounded-lg text-xs font-medium">
+                      {project.category}
+                    </div> */}
+
+                    {/* Project Name on hover */}
+                    {/* <div className="absolute bottom-3 right-3 bg-black/70 backdrop-blur-sm text-white px-3 py-1.5 rounded-lg text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      {project.name}
+                    </div> */}
+
+                    {/* Hover overlay */}
+                    {/* <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <div className="text-white text-center">
+                        <div className="text-4xl font-bold">#{i + 1}</div>
+                        <div className="text-sm mt-1">{project.category}</div>
+                      </div>
+                    </div> */}
                   </div>
                 </div>
               </Reveal>
@@ -94,7 +113,6 @@ export function Projects() {
           </div>
         </div>
 
-        {/* No projects message */}
         {filteredProjects.length === 0 && (
           <div className="mt-20 text-center">
             <p className="text-muted-foreground">

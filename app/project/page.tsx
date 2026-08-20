@@ -1,4 +1,6 @@
-import { Projects } from '@/components/sections/projects'
+// app/project/page.tsx
+
+import Projects from '@/components/sections/projects'  
 
 export default function ProcessPage() {
   return (
