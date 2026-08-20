@@ -5,7 +5,7 @@ import { About } from '@/components/sections/about'
 import { Services } from '@/components/sections/services'
 import { WhyChooseUs } from '@/components/sections/why-choose-us'
 // import { Products } from '@/components/sections/products'
-import { Projects } from '@/components/sections/projects'
+import  Projects  from '@/components/sections/projects'
 import { Testimonials } from '@/components/sections/testimonials'
 import { Contact } from '@/components/sections/contact'
 
